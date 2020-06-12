@@ -5,7 +5,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import ItemDetails from "./components/items/ItemDetails";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
-import CreateItem from "./components/items/CreateItem"
+import CreateItem from "./components/items/CreateItem";
 
 class App extends Component {
   render() {
