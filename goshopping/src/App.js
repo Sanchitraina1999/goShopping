@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      Hi
-    </div>
+    <BrowserRouter>
+      <div className="App">Hi</div>
+    </BrowserRouter>
   );
 }
 
