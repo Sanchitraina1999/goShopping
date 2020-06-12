@@ -1,13 +1,13 @@
 import React from "react";
 import ItemSummary from "./ItemSummary";
 
-const ItemList = () => {
+const ItemList = ({ items }) => {
   return (
     <div className="Item-list section">
-      <ItemSummary />
-      <ItemSummary />
-      <ItemSummary />
-      <ItemSummary />
+      {items &&
+        items.map((item) => {
+          return <ItemSummary item={item} key={item.id} />;
+        })}
     </div>
   );
 };
