@@ -5,6 +5,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import ItemDetails from "./components/items/ItemDetails";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
+import CreateItem from "./components/items/CreateItem"
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path="/item/:id" component={ItemDetails}></Route>
             <Route path="/signin" component={SignIn}></Route>
             <Route path="/signup" component={SignUp}></Route>
+            <Route path="/createItem" component={CreateItem}></Route>
           </Switch>
         </div>
       </BrowserRouter>
