@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { createItem } from "../../store/actions/itemActions";
+import { connect } from "react-redux";
 
 class CreateItem extends Component {
   state = {
@@ -12,7 +14,8 @@ class CreateItem extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.createItem(this.state);
   };
   render() {
     return (
@@ -40,4 +43,12 @@ class CreateItem extends Component {
   }
 }
 
-export default CreateItem;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createItem: (item) => {
+      dispatch(createItem(item));
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CreateItem);

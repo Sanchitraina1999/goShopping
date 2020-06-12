@@ -7,6 +7,10 @@ const initState = {
 };
 
 const itemReducer = (state = initState, action) => {
+  switch (action.type) {
+    case "CREATE_ITEM":
+      console.log("created item", action.item);
+  }
   return state;
 };
 
