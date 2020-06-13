@@ -8,8 +8,8 @@ const ItemList = ({ items }) => {
       {items &&
         items.map((item) => {
           return (
-            <Link to={"/item/" + item.id}>
-              <ItemSummary item={item} key={item.id} />
+            <Link to={"/item/" + item.id} key={item.id}>
+              <ItemSummary item={item} />
             </Link>
           );
         })}
