@@ -2,7 +2,7 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 
-const createNotification = (notification) => {
+const createNotificationForItemCreated = (notification) => {
   return admin
     .firestore()
     .collection("notifications")
@@ -15,12 +15,20 @@ exports.itemCreated = functions.firestore
   .onCreate((doc) => {
     const item = doc.data();
     const notification = {
-      content: "Added a new Item",
+      content: "added " + `${item.title}`,
       user: `${item.authorFirstName} ${item.authorLastName}`,
       time: admin.firestore.FieldValue.serverTimestamp(),
     };
-    return createNotification(notification);
+    return createNotificationForItemCreated(notification);
   });
+
+const createNotificationForUserJoined = (notification) => {
+  return admin
+    .firestore()
+    .collection("notifications")
+    .add(notification)
+    .then((doc) => console.log("NOTIFICATION ADDED", doc));
+};
 
 exports.userJoined = functions.auth.user().onCreate((user) => {
   return admin
@@ -31,10 +39,10 @@ exports.userJoined = functions.auth.user().onCreate((user) => {
     .then((doc) => {
       const newUser = doc.data();
       const notification = {
-        content: "Joined",
+        content: "joined",
         user: `${newUser.firstName} ${newUser.lastName}`,
         time: admin.firestore.FieldValue.serverTimestamp(),
       };
-      return createNotification(notification);
+      return createNotificationForUserJoined(notification);
     });
 });
