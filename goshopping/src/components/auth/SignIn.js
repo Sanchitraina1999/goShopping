@@ -22,7 +22,7 @@ class SignIn extends Component {
     if (auth.uid) return <Redirect to="/" />;
     return (
       <div className="container margin-5">
-        <form onSubmit={this.handleSubmit} className="white">
+        <form onSubmit={this.handleSubmit} autoComplete="on" className="white">
           <h5 className="grey-text text-darken-4">Sign In:</h5>
           <div className="input-field">
             <label htmlFor="email">Email:</label>
@@ -30,7 +30,12 @@ class SignIn extends Component {
           </div>
           <div className="input-field">
             <label htmlFor="password">Password:</label>
-            <input type="password" id="password" onChange={this.handleChange} />
+            <input
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
             <button className="btn red lighten-1 z-depth-0">Sign In</button>
