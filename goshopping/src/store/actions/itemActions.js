@@ -9,7 +9,7 @@ export const createItem = (item) => {
       .add({
         ...item,
         authorFirstName: profile.firstName,
-        authorLasrName: profile.lastName,
+        authorLastName: profile.lastName,
         authorId: authorId,
         createdAt: new Date(),
       })
