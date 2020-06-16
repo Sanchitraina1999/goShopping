@@ -16,7 +16,8 @@ class CreateItem extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     // console.log(this.state);
-    this.props.createItem(this.state);
+    this.props.createItem(this.state)
+    this.props.history.push('/');
   };
   render() {
     const { auth } = this.props;
