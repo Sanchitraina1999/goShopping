@@ -1,2 +1,2 @@
 # goShopping
-Visit: https://sanchit199-goshopping.web.app/signin
+Visit: https://sanchit199-goshopping.web.app/
